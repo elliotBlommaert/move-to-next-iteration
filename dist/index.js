@@ -30414,6 +30414,8 @@ const run = async () => {
     const ghProject = new GitHubProject({ owner, number, token, fields: { iteration: iterationField } });
     console.log("hi11")
 
+    const items = await ghProject.items;
+    console.log("hi12")
     const items = await ghProject.items.list();
     console.log("hi12")
     core.debug(`items: ${JSON.stringify(items)}`);
