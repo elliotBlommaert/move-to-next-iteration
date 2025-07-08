@@ -2,10 +2,16 @@ console.log('=== ACTION STARTING ===');
 
 
 import core from "@actions/core";
+console.log(`Here2`);
+console.log('Here3');
+core.debug(`Here`);
+core.setFailed(`Here`);
 import GitHubProject from "github-project";
 
 const run = async () => {
   try {
+    console.log('Here3');
+
     core.setFailed(`Here`);
     const owner = core.getInput("owner");
     const number = Number(core.getInput("number"));
