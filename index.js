@@ -8,7 +8,7 @@ core.debug(`Here`);
 core.setFailed(`Here`);
 import GitHubProject from "github-project";
 
-const run = async () => {
+async function run() => {
   try {
     console.log('Here3');
 
