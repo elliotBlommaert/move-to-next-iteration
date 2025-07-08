@@ -30416,7 +30416,7 @@ const run = async () => {
 
     const items = await ghProject.items;
     console.log("hi12")
-    const items = await ghProject.items.list();
+    const items2 = await ghProject.items.list();
     console.log("hi12")
     core.debug(`items: ${JSON.stringify(items)}`);
 
