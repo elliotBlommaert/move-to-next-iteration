@@ -30409,6 +30409,7 @@ const run = async () => {
     console.log("hi9")
     const excludedStatuses = coreExclusedStatuses ? coreExclusedStatuses.split(",") : [];
     console.log("hi10")
+    console.log(token)
 
     const ghProject = new GitHubProject({ owner, number, token, fields: { iteration: iterationField } });
     console.log("hi11")
