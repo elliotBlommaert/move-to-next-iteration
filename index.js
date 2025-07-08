@@ -3,7 +3,7 @@ import GitHubProject from "github-project";
 
 const run = async () => {
   try {
-    core.debug(`Here`)
+    core.setFailed(`Here`);
     const owner = core.getInput("owner");
     const number = Number(core.getInput("number"));
     const token = core.getInput("token");
