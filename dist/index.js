@@ -4,6 +4,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
 /***/ 4914:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
+console.log('hi')
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
