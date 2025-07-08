@@ -30389,19 +30389,32 @@ class GitHubProject {
 
 const run = async () => {
   try {
+    console.log("hi1")
     const owner = core.getInput("owner");
+    console.log("hi2")
     const number = Number(core.getInput("number"));
+    console.log("hi3")
+    console.log(owner)
     const token = core.getInput("token");
+    console.log("hi4")
     const iterationField = core.getInput("iteration-field"); // name of the iteration field
+    console.log("hi5")
     const iterationType = core.getInput("iteration"); // last or current
+    console.log("hi6")
     const newiterationType = core.getInput("new-iteration"); // current or next
+    console.log("hi7")
     const statuses = core.getInput("statuses").split(",");
+    console.log("hi8")
     const coreExclusedStatuses = core.getInput("excluded-statuses");
+    console.log("hi9")
     const excludedStatuses = coreExclusedStatuses ? coreExclusedStatuses.split(",") : [];
+    console.log("hi10")
 
     const ghProject = new GitHubProject({ owner, number, token, fields: { iteration: iterationField } });
+    console.log("hi11")
 
     const items = await ghProject.items.list();
+    console.log("hi12")
     core.debug(`items: ${JSON.stringify(items)}`);
 
     const project = await ghProject.getProperties();
