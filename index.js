@@ -1,3 +1,6 @@
+console.log('=== ACTION STARTING ===');
+
+
 import core from "@actions/core";
 import GitHubProject from "github-project";
 
