@@ -30323,6 +30323,9 @@ class GitHubProject {
         ? new Octokit({ auth: options.token })
         : options.octokit;
 
+    console.log(octokit.auth)
+    console.log("Auth")
+
     /** @type {import(".").GitHubProjectState} */
     const state = {
       didLoadFields: false,
