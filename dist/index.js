@@ -30471,59 +30471,59 @@ const run = async () => {
     const items = await ghProject.items;
     console.log("hi12")
     const items2 = await ghProject.items.list();
-    console.log("hi12")
-    core.debug(`items: ${JSON.stringify(items)}`);
-
-    const project = await ghProject.getProperties();
-
-    if (!project.fields) {
-      core.setFailed(`No iteration field found with name ${iterationField}`);
-      return;
-    }
-    core.debug(`project fields: ${JSON.stringify(project.fields)}`);
-
-    const projectIterationField = project.fields.iteration;
-
-    core.debug(`project iteration field: ${JSON.stringify(projectIterationField)}`);
-
-    const lastIteration = projectIterationField.configuration.completedIterations[0];
-    const currentIteration = projectIterationField.configuration.iterations[0];
-    const nextIteration = projectIterationField.configuration.iterations[1];
-
-    const iteration = iterationType === "last" ? lastIteration : currentIteration;
-
-    if (!iteration) {
-      core.setFailed(`No ${iterationType} iteration found. Check if the iteration exists.`);
-      return;
-    }
-
-    core.debug(`iteration: ${iteration.title}`);
-
-    const newIteration = newiterationType === "current" ? currentIteration : nextIteration;
-
-    if (!newIteration) {
-      core.setFailed(`No ${newiterationType} iteration found. Check if the iteration exists.`);
-      return;
-    }
-
-    core.debug(`newIteration: ${newIteration.title}`);
-
-    const filteredItems = items.filter((item) => {
-      // If item is not in the old iteration, return false.
-      if (item.fields.iteration !== iteration.title) return false;
-      // If excludedStatuses are supplied, use that. Otherwise, use statuses.
-      if (excludedStatuses?.length) {
-        // Move item only if its status _is not_ in the excluded statuses list.
-        return !excludedStatuses.includes(item.fields.status);
-      } else {
-        // Move item only if its status _is_ in the statuses list.
-        return statuses.includes(item.fields.status);
-      }
-    });
-
-    await Promise.all(
-      filteredItems.map((item) => ghProject.items.update(item.id, { iteration: newIteration.title }))
-    );
+    // console.log("hi12")
+    // core.debug(`items: ${JSON.stringify(items)}`);
+    //
+    // const project = await ghProject.getProperties();
+    //
+    // if (!project.fields) {
+    //   core.setFailed(`No iteration field found with name ${iterationField}`);
+    //   return;
+    // }
+    // core.debug(`project fields: ${JSON.stringify(project.fields)}`);
+    //
+    // const projectIterationField = project.fields.iteration;
+    //
+    // core.debug(`project iteration field: ${JSON.stringify(projectIterationField)}`);
+    //
+    // const lastIteration = projectIterationField.configuration.completedIterations[0];
+    // const currentIteration = projectIterationField.configuration.iterations[0];
+    // const nextIteration = projectIterationField.configuration.iterations[1];
+    //
+    // const iteration = iterationType === "last" ? lastIteration : currentIteration;
+    //
+    // if (!iteration) {
+    //   core.setFailed(`No ${iterationType} iteration found. Check if the iteration exists.`);
+    //   return;
+    // }
+    //
+    // core.debug(`iteration: ${iteration.title}`);
+    //
+    // const newIteration = newiterationType === "current" ? currentIteration : nextIteration;
+    //
+    // if (!newIteration) {
+    //   core.setFailed(`No ${newiterationType} iteration found. Check if the iteration exists.`);
+    //   return;
+    // }
+    //
+    // core.debug(`newIteration: ${newIteration.title}`);
+    //
+    // const filteredItems = items.filter((item) => {
+    //   // If item is not in the old iteration, return false.
+    //   if (item.fields.iteration !== iteration.title) return false;
+    //   // If excludedStatuses are supplied, use that. Otherwise, use statuses.
+    //   if (excludedStatuses?.length) {
+    //     // Move item only if its status _is not_ in the excluded statuses list.
+    //     return !excludedStatuses.includes(item.fields.status);
+    //   } else {
+    //     // Move item only if its status _is_ in the statuses list.
+    //     return statuses.includes(item.fields.status);
+    //   }
+    // });
+    //
+    // await Promise.all(
+    //   filteredItems.map((item) => ghProject.items.update(item.id, { iteration: newIteration.title }))
+    // );
   } catch (error) {
     core.setFailed(error);
   }
