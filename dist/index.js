@@ -29126,6 +29126,13 @@ async function listItems(project, state) {
   console.log(project.fields)
   // console.log(getProjectWithItemsQuery)
   console.log("before octokit1")
+
+
+  const octokit = new Octokit({
+      auth: core.getInput("token"),
+    });
+
+    const result = await octokit.graphql(customQuery);
   // const {
   //   data: { login },
   // } = await project.octokit.rest.users.getAuthenticated();
