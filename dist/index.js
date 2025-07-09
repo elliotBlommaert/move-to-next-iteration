@@ -29123,8 +29123,7 @@ function projectItemNodeToGitHubProjectItem(state, itemNode) {
  * @returns {Promise<import("..").GitHubProjectItem[]>}
  */
 async function listItems(project, state) {
-  console.log(project.owner)
-  console.log(project.options)
+  console.log(project.fields)
   // console.log(getProjectWithItemsQuery)
   console.log("before octokit1")
   const {
