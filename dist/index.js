@@ -29133,7 +29133,7 @@ async function listItems(project, state) {
   console.log("Hello, %s", login);
   // const a = await project.octokit.graphql(customQuery);
 
-  console.log(a)
+  // console.log(a)
   console.log("after octokit1")
   const {
     userOrOrganization: { projectV2 },
