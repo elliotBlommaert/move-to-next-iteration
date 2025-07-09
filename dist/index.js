@@ -29124,7 +29124,7 @@ function projectItemNodeToGitHubProjectItem(state, itemNode) {
  */
 async function listItems(project, state) {
   console.log(project.owner)
-  console.log(project.number)
+  console.log(project.options)
   // console.log(getProjectWithItemsQuery)
   console.log("before octokit1")
   const {
