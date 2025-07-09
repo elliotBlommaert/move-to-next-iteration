@@ -28445,16 +28445,20 @@ class Octokit {
     );
     this.hook = hook;
     if (!options.authStrategy) {
+      console.log("a")
       if (!options.auth) {
+        console.log("b")
         this.auth = async () => ({
           type: "unauthenticated"
         });
       } else {
+        console.log("c")
         const auth = createTokenAuth(options.auth);
         hook.wrap("request", auth.hook);
         this.auth = auth;
       }
     } else {
+      console.log("d")
       const { authStrategy, ...otherOptions } = options;
       const auth = authStrategy(
         Object.assign(
