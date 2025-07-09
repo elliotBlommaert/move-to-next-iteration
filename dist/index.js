@@ -29126,9 +29126,9 @@ async function listItems(project, state) {
   console.log(project.fields)
   // console.log(getProjectWithItemsQuery)
   console.log("before octokit1")
-  console.log(core.getInput("token").slice(0,-1))
   const octokit = new Octokit({
       auth: core.getInput("token"),
+      log: console
     });
 
     console.log("result2")
