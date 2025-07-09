@@ -28445,20 +28445,16 @@ class Octokit {
     );
     this.hook = hook;
     if (!options.authStrategy) {
-      console.log("a")
       if (!options.auth) {
-        console.log("b")
         this.auth = async () => ({
           type: "unauthenticated"
         });
       } else {
-        console.log("c")
         const auth = createTokenAuth(options.auth);
         hook.wrap("request", auth.hook);
         this.auth = auth;
       }
     } else {
-      console.log("d")
       const { authStrategy, ...otherOptions } = options;
       const auth = authStrategy(
         Object.assign(
@@ -29131,7 +29127,11 @@ async function listItems(project, state) {
   console.log(project.number)
   // console.log(getProjectWithItemsQuery)
   console.log("before octokit1")
-  const a = await project.octokit.graphql(customQuery);
+  const {
+    data: { login },
+  } = await octokit.rest.users.getAuthenticated();
+  console.log("Hello, %s", login);
+  // const a = await project.octokit.graphql(customQuery);
 
   console.log(a)
   console.log("after octokit1")
