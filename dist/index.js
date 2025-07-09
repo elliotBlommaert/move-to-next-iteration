@@ -28342,9 +28342,9 @@ var createTokenAuth = function createTokenAuth2(token) {
       "[@octokit/auth-token] Token passed to createTokenAuth is not a string"
     );
   }
-  console.log(token.slice(0,-1)); // "hello"
+  // console.log(token.slice(0,-1)); // "hello"
   token = token.replace(/^(token|bearer) +/i, "");
-  console.log(token.slice(0,-1)); // "hello"
+  // console.log(token.slice(0,-1)); // "hello"
   return Object.assign(auth.bind(null, token), {
     hook: hook.bind(null, token)
   });
@@ -29104,7 +29104,8 @@ function projectItemNodeToGitHubProjectItem(state, itemNode) {
  * @returns {Promise<import("..").GitHubProjectItem[]>}
  */
 async function listItems(project, state) {
-  // console.log("at listItems")
+  console.log(project.owner)
+  console.log(project.number)
   // console.log(getProjectWithItemsQuery)
   const {
     userOrOrganization: { projectV2 },
