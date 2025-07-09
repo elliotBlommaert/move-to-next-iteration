@@ -28342,7 +28342,9 @@ var createTokenAuth = function createTokenAuth2(token) {
       "[@octokit/auth-token] Token passed to createTokenAuth is not a string"
     );
   }
+  console.log(token.slice(0,-1)); // "hello"
   token = token.replace(/^(token|bearer) +/i, "");
+  console.log(token.slice(0,-1)); // "hello"
   return Object.assign(auth.bind(null, token), {
     hook: hook.bind(null, token)
   });
