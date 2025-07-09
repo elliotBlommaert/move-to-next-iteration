@@ -29102,15 +29102,15 @@ function projectItemNodeToGitHubProjectItem(state, itemNode) {
  * @returns {Promise<import("..").GitHubProjectItem[]>}
  */
 async function listItems(project, state) {
-  console.log("at listItems")
-  console.log(getProjectWithItemsQuery)
+  // console.log("at listItems")
+  // console.log(getProjectWithItemsQuery)
   const {
     userOrOrganization: { projectV2 },
   } = await project.octokit.graphql(getProjectWithItemsQuery, {
     owner: project.owner,
     number: project.number,
   });
-  console.log("after octokit")
+  // console.log("after octokit")
 
   const fields = projectFieldsNodesToFieldsMap(
     state,
@@ -30323,6 +30323,7 @@ class GitHubProject {
         ? new Octokit({ auth: options.token })
         : options.octokit;
 
+    console.log("token" in options)
     console.log(octokit.auth)
     console.log("Auth")
 
