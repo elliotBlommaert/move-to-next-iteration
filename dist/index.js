@@ -29129,7 +29129,7 @@ async function listItems(project, state) {
   console.log("before octokit1")
   const {
     data: { login },
-  } = await octokit.rest.users.getAuthenticated();
+  } = await project.octokit.rest.users.getAuthenticated();
   console.log("Hello, %s", login);
   // const a = await project.octokit.graphql(customQuery);
 
