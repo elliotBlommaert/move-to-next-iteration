@@ -29132,8 +29132,17 @@ async function listItems(project, state) {
       auth: core.getInput("token"),
     });
 
-    const result = await octokit.graphql(customQuery);
-    console.log(result)
+    console.log("result2")
+
+
+    const {
+      viewer: { login },
+    } = await octokit.graphql(`{
+      viewer {
+        login
+      }
+    }`);
+    console.log(login)
     console.log("result")
   // const {
   //   data: { login },
