@@ -28645,6 +28645,24 @@ const queryItemFieldNodes = `
   }
 `;
 
+const customQuery = `
+    query {
+      organization(login: "OnroerendErfgoed") {
+        projectsV2(first: 3) {
+          nodes {
+            title
+            shortDescription
+            public
+            url
+            items(first: 5) {
+              totalCount
+            }
+          }
+        }
+      }
+    }
+`;
+
 const getProjectWithItemsQuery = `
   query getProjectWithItems($owner: String!, $number: Int!) {
     userOrOrganization: repositoryOwner(login: $owner) {
@@ -29107,13 +29125,18 @@ async function listItems(project, state) {
   console.log(project.owner)
   console.log(project.number)
   // console.log(getProjectWithItemsQuery)
+  console.log("before octokit1")
+  const a = await project.octokit.graphql(customQuery);
+
+  console.log(a)
+  console.log("after octokit1")
   const {
     userOrOrganization: { projectV2 },
   } = await project.octokit.graphql(getProjectWithItemsQuery, {
     owner: project.owner,
     number: project.number,
   });
-  // console.log("after octokit")
+  console.log("after octokit2")
 
   const fields = projectFieldsNodesToFieldsMap(
     state,
