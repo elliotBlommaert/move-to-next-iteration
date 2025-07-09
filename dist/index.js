@@ -29103,6 +29103,7 @@ function projectItemNodeToGitHubProjectItem(state, itemNode) {
  */
 async function listItems(project, state) {
   console.log("at listItems")
+  console.log(getProjectWithItemsQuery)
   const {
     userOrOrganization: { projectV2 },
   } = await project.octokit.graphql(getProjectWithItemsQuery, {
