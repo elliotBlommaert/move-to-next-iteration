@@ -29126,13 +29126,13 @@ async function listItems(project, state) {
   console.log(project.fields)
   // console.log(getProjectWithItemsQuery)
   console.log("before octokit1")
-  const {
-    data: { login },
-  } = await project.octokit.rest.users.getAuthenticated();
-  console.log("Hello, %s", login);
-  // const a = await project.octokit.graphql(customQuery);
+  // const {
+  //   data: { login },
+  // } = await project.octokit.rest.users.getAuthenticated();
+  // console.log("Hello, %s", login);
+  const a = await project.octokit.graphql(customQuery);
 
-  // console.log(a)
+  console.log(a)
   console.log("after octokit1")
   const {
     userOrOrganization: { projectV2 },
