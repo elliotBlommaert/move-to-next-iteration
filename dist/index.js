@@ -29133,6 +29133,8 @@ async function listItems(project, state) {
     });
 
     const result = await octokit.graphql(customQuery);
+    console.log(result)
+    console.log("result")
   // const {
   //   data: { login },
   // } = await project.octokit.rest.users.getAuthenticated();
