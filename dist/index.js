@@ -29109,6 +29109,7 @@ async function listItems(project, state) {
     owner: project.owner,
     number: project.number,
   });
+  console.log("after octokit")
 
   const fields = projectFieldsNodesToFieldsMap(
     state,
